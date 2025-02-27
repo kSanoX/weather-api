@@ -19,7 +19,7 @@ const Weather: React.FC = () => {
   const apiKey = "3549fb39ae270e23d51b59a005a825de";
 
   const fetchData = async () => {
-    if (!city.trim()) return;
+    if (!city.trim()) return; // Если строка пустая, ничего не делаем
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
@@ -35,7 +35,7 @@ const Weather: React.FC = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      fetchData();
+      fetchData(); // Запрос данных при нажатии Enter
     }
   };
 
@@ -46,7 +46,7 @@ const Weather: React.FC = () => {
         id="city"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleKeyDown} // Добавляем обработчик Enter
         className="max-w-xs"
       />
       {weatherData && (
