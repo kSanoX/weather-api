@@ -16,7 +16,7 @@ interface WeatherData {
 const Weather: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [city, setCity] = useState<string>("");
-  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+  const apiKey = import.meta.env.VITE_WEATHER_API_KE;
 
   const fetchData = async () => {
     if (!city.trim()) return;
