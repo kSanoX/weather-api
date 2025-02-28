@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./ui/input";
-import { CloudDrizzle, Thermometer, CircleArrowDown } from "lucide-react";
 
 interface WeatherData {
   name: string;
@@ -40,23 +39,23 @@ const Weather: React.FC = () => {
     }
   };
 
-
   return (
-    <div className={`center-text text-3xl`}>
+    <div className="center-text">
       <h1 className="text-3xl py-6">Type your city</h1>
       <Input
         id="city"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="m-auto max-w-2xl p-6 rounded-xl border-lime-100"
+        className="m-auto max-w-xs rounded-xl"
+        
       />
       {weatherData && (
-        <div className="mt-4 flex flex-col gap-2" >
+        <div className="mt-4">
           <h2>Weather in {weatherData.name}</h2>
-          <p className="flex items-center justify-center"><Thermometer size={32}/> Temperature: {weatherData.main.temp}°C</p>
-          <p className="flex items-center justify-center"><CloudDrizzle size={32}/> Weather: {weatherData.weather[0].description}</p>
-          <p className="flex items-center justify-center"><CircleArrowDown size={32}/> Humidity: {weatherData.main.humidity}%</p>
+          <p>Temperature: {weatherData.main.temp}°C</p>
+          <p>Weather: {weatherData.weather[0].description}</p>
+          <p>Humidity: {weatherData.main.humidity}%</p>
         </div>
       )}
     </div>

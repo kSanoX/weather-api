@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./ui/input";
-import { CloudDrizzle, Thermometer, CircleArrowDown } from "lucide-react";
+import { CloudDrizzle } from "lucide-react";
 
 interface WeatherData {
   name: string;
@@ -49,14 +49,14 @@ const Weather: React.FC = () => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="m-auto max-w-2xl p-6 rounded-xl border-lime-100"
+        className="m-auto max-w-2xl p-12 rounded-xl border-lime-100"
       />
       {weatherData && (
         <div className="mt-4 flex flex-col gap-2" >
-          <h2>Weather in {weatherData.name}</h2>
-          <p className="flex items-center justify-center"><Thermometer size={32}/> Temperature: {weatherData.main.temp}°C</p>
-          <p className="flex items-center justify-center"><CloudDrizzle size={32}/> Weather: {weatherData.weather[0].description}</p>
-          <p className="flex items-center justify-center"><CircleArrowDown size={32}/> Humidity: {weatherData.main.humidity}%</p>
+          <h2>Weather in {weatherData.name} <CloudDrizzle size={24}/></h2>
+          <p>Temperature: {weatherData.main.temp}°C</p>
+          <p>Weather: {weatherData.weather[0].description}</p>
+          <p>Humidity: {weatherData.main.humidity}%</p>
         </div>
       )}
     </div>
